@@ -1,124 +1,197 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="PT-BR">
 <head>
-    <meta charset="UTF-8" />
-    <title>Menu Jogos + Carrossel + Validação + Máscara</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    nav { margin-bottom: 20px; }
-    nav ul { list-style: none; padding: 0; display: flex; gap: 15px; }
-    nav ul li { cursor: pointer; padding: 8px 12px; background: #333; color: #fff; border-radius: 5px; }
-    nav ul li:hover { background: #555; }
-    .carousel img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; }
-    .carousel { max-width: 600px; margin: auto 0 30px; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gatos</title>
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .banner-adocao {
+      background: #f9c6d1;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .sobre, .formulario {
+      padding: 40px 20px;
+      background: #fff4f6;
+    }
+
+    .sobre h2, .formulario h2 {
+      text-align: center;
+    }
+
+    .gatos-adocao {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      background-color: #f3f3f3;
+    }
+
+    .card-gato {
+      background: white;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .card-gato img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-gato .info {
+      padding: 15px;
+    }
 
     form {
-        max-width: 300px;
-        margin: 20px auto;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    input, button {
-        padding: 8px;
-        font-size: 1em;
-        border-radius: 5px;
-        border: 1px solid #ccc;
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
 
-    input.error {
-        border-color: red;
-        background: #ffe6e6;
+    form button {
+      background: #f47c96;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
-    .error-msg {
-        color: red;
-        font-size: 0.9em;
-        display: none;
+    .footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
     }
-    </style>
+  </style>
 </head>
 <body>
+  <header>
+    <div class="container">
+      <h1>Gatos</h1>
+    </div>
+    <div class="menu-hamburguer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <div class="container">
+        <ul>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Em destaque</a></li>
+          <li><a href="#">Promoções</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-<nav>
-    <ul id="menu-jogos">
-    <li>Jogo 1</li>
-    <li>Jogo 2</li>
-    <li>Jogo 3</li>
-    <li>Jogo 4</li>
-    </ul>
-</nav>
+  <div id="carousel-imagens">
+    <img src="./imagens/gatinhos.jpg" alt="gato">
+    <img src="./imagens/gatos.jpg" alt="gatos">
+    <img src="./imagens/pao.jpg" alt="gatinhos">
+  </div>
 
-<div class="carousel">
-    <div><img src="https://placekitten.com/600/300" alt="Imagem 1"></div>
-    <div><img src="https://placebear.com/600/300" alt="Imagem 2"></div>
-    <div><img src="https://placeimg.com/600/300/tech" alt="Imagem 3"></div>
-</div>
+  <section class="banner-adocao">
+    <h2>Adote um gatinho!</h2>
+    <p>Ajude um bichinho a encontrar um lar cheio de amor ❤️</p>
+  </section>
 
-<form id="form-jogador">
-    <label for="nome">Nome do Jogador:</label>
-    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" />
-    <span class="error-msg" id="erro-nome">Por favor, preencha o nome.</span>
+  <section class="sobre">
+    <h2>Sobre a Adoção</h2>
+    <p style="max-width: 800px; margin: 0 auto; text-align: center;">
+      Nosso site é dedicado à adoção responsável de gatinhos. Aqui, você encontra animais resgatados com amor, prontos para fazer parte da sua família.
+    </p>
+  </section>
 
-    <label for="telefone">Telefone:</label>
-    <input type="text" id="telefone" name="telefone" placeholder="(99) 99999-9999" />
+  <section class="gatos-adocao">
+    <div class="card-gato">
+      <img src="https://placekitten.com/300/200" alt="Mimi">
+      <div class="info">
+        <h3>Mimi</h3>
+        <p>Fêmea, 2 meses. Muito carinhosa e brincalhona.</p>
+      </div>
+    </div>
+    <div class="card-gato">
+      <img src="https://placekitten.com/301/200" alt="Tigre">
+      <div class="info">
+        <h3>Tigre</h3>
+        <p>Macho, 3 meses. Adora correr e escalar!</p>
+      </div>
+    </div>
+    <div class="card-gato">
+      <img src="https://placekitten.com/302/200" alt="Nina">
+      <div class="info">
+        <h3>Nina</h3>
+        <p>Fêmea, 1 ano. Calma, ama um colinho.</p>
+      </div>
+    </div>
+  </section>
 
-    <button type="submit">Enviar</button>
-</form>
+  <section class="formulario">
+    <h2>Fale com a gente</h2>
+    <form id="form-contato">
+      <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+      <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+      <input type="text" id="telefone" name="telefone" placeholder="Seu telefone" required>
+      <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" rows="4" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-mask-plugin@1.14.16/dist/jquery.mask.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <footer class="footer">
+    <p>Entre em contato: adocaogatinhos@email.com | © 2025 Gatos</p>
+  </footer>
 
-<script>
+  <!-- jQuery e Plugins -->
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+  <!-- Scripts -->
+  <script>
     $(document).ready(function(){
-    // Inicializa o carrossel slick
-    $('.carousel').slick({
-        dots: true,
-        arrows: true,
-        autoplay: true,
-        autoplaySpeed: 2500,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    });
+      $('#carousel-imagens').slick({
+        autoplay: true
+      });
 
-    // Clique no menu
-    $('#menu-jogos li').click(function(){
-        alert('Você clicou no ' + $(this).text());
-    });
+      $('#telefone').mask('(00) 00000-0000');
 
-    // Máscara no telefone
-    $('#telefone').mask('(00) 00000-0000');
-
-    // Validação simples no envio do formulário
-    $('#form-jogador').submit(function(event){
-        event.preventDefault();
-
-        const nome = $('#nome').val().trim();
-        if(nome === ''){
-        $('#nome').addClass('error');
-        $('#erro-nome').show();
-        } else {
-        $('#nome').removeClass('error');
-        $('#erro-nome').hide();
-        alert('Formulário enviado! Nome: ' + nome + ', Telefone: ' + $('#telefone').val());
-        // Aqui você pode fazer envio via AJAX ou resetar o form
-        $(this)[0].reset();
+      $('#form-contato').on('submit', function(e){
+        if (!$('#nome').val() || !$('#email').val() || !$('#telefone').val() || !$('#mensagem').val()) {
+          alert('Preencha todos os campos!');
+          e.preventDefault();
         }
+      });
     });
-
-    // Remove erro ao digitar no input nome
-    $('#nome').on('input', function(){
-        if($(this).val().trim() !== ''){
-        $(this).removeClass('error');
-        $('#erro-nome').hide();
-        }
-    });
-    });
-</script>
-
+  </script>
 </body>
 </html>

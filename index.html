@@ -1,197 +1,84 @@
 <!DOCTYPE html>
-<html lang="PT-BR">
+<html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gatos</title>
-  <link rel="stylesheet" href="./main.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .banner-adocao {
-      background: #f9c6d1;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .sobre, .formulario {
-      padding: 40px 20px;
-      background: #fff4f6;
-    }
-
-    .sobre h2, .formulario h2 {
-      text-align: center;
-    }
-
-    .gatos-adocao {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-      background-color: #f3f3f3;
-    }
-
-    .card-gato {
-      background: white;
-      border-radius: 10px;
-      width: 250px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-
-    .card-gato img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card-gato .info {
-      padding: 15px;
-    }
-
-    form {
-      max-width: 500px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    form input, form textarea {
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    form button {
-      background: #f47c96;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário de Cadastro - Módulo 10</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 </head>
+<!--
+
+    CONSULTEM O README PARA DICAS DE COMO SOLUCIONAR O EXERCÍCIO!
+
+-->
+
 <body>
-  <header>
+    <header>
+        <h1>Adquira seu veículo agora mesmo!</h1>
+    </header>
+
+    <div id="carousel-imagens">
+        <img src="./imagens/slide1.png" alt="Carro da Porsche" />
+        <img src="./imagens/slide2.png" alt="Carro da BMW" />
+        <img src="./imagens/slide3.png" alt="Carro da Ford" />
+    </div>
+
     <div class="container">
-      <h1>Gatos</h1>
+        <h2>Insira seus dados para finalização da compra</h2>
+        <form id="form">
+            <div class="form-campo">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" placeholder="John Doe" />
+            </div>
+            <div class="form-campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="email@exemplo.com" />
+            </div>
+            <div class="form-campo">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" />
+            </div>
+            <div class="form-campo">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="cpf" />
+            </div>
+            <div class="form-campo">
+                <label for="endereco">Endereço completo</label>
+                <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro, cidade, estado" />
+            </div>
+            <div class="form-campo">
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" />
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
     </div>
-    <div class="menu-hamburguer">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav>
-      <div class="container">
-        <ul>
-          <li><a href="#">Sobre</a></li>
-          <li><a href="#">Em destaque</a></li>
-          <li><a href="#">Promoções</a></li>
-          <li><a href="#">Contato</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
 
-  <div id="carousel-imagens">
-    <img src="./imagens/gatinhos.jpg" alt="gato">
-    <img src="./imagens/gatos.jpg" alt="gatos">
-    <img src="./imagens/pao.jpg" alt="gatinhos">
-  </div>
+    <!-- Coloque o jQuery antes dos plugins que dependem dele -->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="./js/jquery.mask.min.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
+    <script src="./js/messages_pt_BR.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="./js/main.js"></script>
 
-  <section class="banner-adocao">
-    <h2>Adote um gatinho!</h2>
-    <p>Ajude um bichinho a encontrar um lar cheio de amor ❤️</p>
-  </section>
-
-  <section class="sobre">
-    <h2>Sobre a Adoção</h2>
-    <p style="max-width: 800px; margin: 0 auto; text-align: center;">
-      Nosso site é dedicado à adoção responsável de gatinhos. Aqui, você encontra animais resgatados com amor, prontos para fazer parte da sua família.
-    </p>
-  </section>
-
-  <section class="gatos-adocao">
-    <div class="card-gato">
-      <img src="https://placekitten.com/300/200" alt="Mimi">
-      <div class="info">
-        <h3>Mimi</h3>
-        <p>Fêmea, 2 meses. Muito carinhosa e brincalhona.</p>
-      </div>
-    </div>
-    <div class="card-gato">
-      <img src="https://placekitten.com/301/200" alt="Tigre">
-      <div class="info">
-        <h3>Tigre</h3>
-        <p>Macho, 3 meses. Adora correr e escalar!</p>
-      </div>
-    </div>
-    <div class="card-gato">
-      <img src="https://placekitten.com/302/200" alt="Nina">
-      <div class="info">
-        <h3>Nina</h3>
-        <p>Fêmea, 1 ano. Calma, ama um colinho.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="formulario">
-    <h2>Fale com a gente</h2>
-    <form id="form-contato">
-      <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
-      <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
-      <input type="text" id="telefone" name="telefone" placeholder="Seu telefone" required>
-      <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" rows="4" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-
-  <footer class="footer">
-    <p>Entre em contato: adocaogatinhos@email.com | © 2025 Gatos</p>
-  </footer>
-
-  <!-- jQuery e Plugins -->
-  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-
-  <!-- Scripts -->
-  <script>
-    $(document).ready(function(){
-      $('#carousel-imagens').slick({
-        autoplay: true
-      });
-
-      $('#telefone').mask('(00) 00000-0000');
-
-      $('#form-contato').on('submit', function(e){
-        if (!$('#nome').val() || !$('#email').val() || !$('#telefone').val() || !$('#mensagem').val()) {
-          alert('Preencha todos os campos!');
-          e.preventDefault();
-        }
-      });
-    });
-  </script>
+    <script>
+        $(document).ready(function () {
+            $('#carousel-imagens').slick({
+                autoplay: true,
+                arrows: false,
+                dots: true
+            });
+        });
+    </script>
 </body>
+
 </html>
